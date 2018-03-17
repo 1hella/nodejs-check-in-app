@@ -1,0 +1,26 @@
+extends layout
+
+block scripts
+  //- script(src="javascripts/login.js")
+
+block content
+  .jumbotron
+    h1= title
+    form#login-form(action="/", method="post")
+      .lead
+        .form-group.text-left
+          label.control-label(for="username") Username:&nbsp;
+          input#username.form-control(type="text", name="username")
+        .form-group.text-left(class=typeof error === "undefined" ? undefined : "has-error")
+          label.control-label(for="password") Password:&nbsp;
+          input#password.form-control(type="password", name="password")
+        
+        if error
+          .alert.alert-danger
+            p(style="font-size: initial")= error
+      
+      button.btn.btn-lg.btn-success(type="submit") Submit
+
+  .row.marketing
+    .col-lg-6
+      .btn.btn-lg.text-center Check in now
