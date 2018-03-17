@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  .jumbotron
+    h1= title
+    form(action="/stop-check-in/" + id, method="post")
+        button.btn.btn-primary(type="submit") Stop #{id} check-in

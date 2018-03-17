@@ -8,6 +8,9 @@ var fs = require('fs');
 
 var index = require('./routes/index');
 var login = require('./routes/login');
+var checkIn = require('./routes/check-in');
+var history = require('./routes/history');
+var admin = require('./routes/admin');
 
 var app = express();
 
@@ -23,8 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
-app.use('/', login);
+app.use('/', index, login, checkIn, history, admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

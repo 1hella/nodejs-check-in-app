@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  .jumbotron
+    h1= title
+    form(action="/admin", method="post")
+        button.btn.btn-primary(type="submit") Back to admin section

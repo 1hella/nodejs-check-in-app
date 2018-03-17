@@ -1,8 +1,5 @@
 extends layout
 
-block scripts
-    script(src="javascript")
-
 block content
   .jumbotron
     h1= title
@@ -10,12 +7,13 @@ block content
       .lead
         .form-group.text-left
           label.control-label(for="check-in") Check-in id:
-          input#check-in-id.form-control(type="text", name="check-in-id")
+          input#id.form-control(type="text", name="id")
         
         .text-left
             button.btn.btn-primary(type="submit") Start check-in
     
-    .text-left
-        button.btn.btn-default View history
+    form(action="/history", method="post")
+        .text-left
+            button.btn.btn-default View history
   
 
