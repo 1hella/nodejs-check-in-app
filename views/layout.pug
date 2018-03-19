@@ -19,7 +19,8 @@ html
       .header.clearfix
         nav
           ul.nav.nav-pills.pull-right
-            li.active(role="presentation"): a(href="/") Home
+            li(role="presentation", class= title === 'Student check-in' || title === 'Check-in complete' ? undefined : 'active'): a(href="/") Home
+            li(role="presentation", class= title === 'Student check-in' || title === 'Check-in complete' ? 'active' : undefined): a(href="/student-check-in") Student check-in
         h3.text-muted: a(href="/") Stephen's check-in
     
       block content

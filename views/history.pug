@@ -9,7 +9,7 @@ block content
         h4= doc.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
         if doc.users.length
           h5 Users:
-          table(border="2")
+          table
             tr 
               th Name
               th Id
