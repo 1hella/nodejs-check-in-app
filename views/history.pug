@@ -2,14 +2,14 @@ extends layout
 
 block content
   .jumbotron
-    h1.margin-bottom.underline= title
+    h1.margin-bottom= title
     each doc in docs
-      div.text-left
+      div
         h2= doc.id
         h4= doc.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
         if doc.users.length
-          h5 Users:
-          table
+          p.strong Users checked-in:
+          table.check-in-table
             tr 
               th Name
               th Id
@@ -19,6 +19,7 @@ block content
                 td= user.userId
         else
           p no users checked in
+      hr
       br
     else
       p no previous check-ins

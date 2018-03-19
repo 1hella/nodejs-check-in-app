@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var mongoConnection = require('../data/mongo_connection');
+var mongoConnection = require('../modules/mongo_connection');
 
 router.post('/stop-check-in/:id', (req, res) => {
     let db = mongoConnection.db();
@@ -22,7 +22,7 @@ router.post('/stop-check-in/:id', (req, res) => {
             docs = [result.value];
         }
         res.render('history', {
-            title: id + ' Check-in list',
+            title: 'Check-in history',
             docs: docs
         });
     });

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var connection = require('../data/mongo_connection');
+var connection = require('../modules/mongo_connection');
+const common = require('../modules/common');
 
 router.post('/check-in', (req, res) => {
     var db = connection.db();
@@ -23,24 +24,24 @@ router.post('/check-in', (req, res) => {
                         isActive: true,
                         date: new Date(),
                         users: []
-                    }, err => {
+                    }, (err, result) => {
                         res.render('check-in', {
-                            title: 'Check-in',
+                            title: `${id} Check-in`,
                             id: id,
-                            error: err
+                            error: err,
+                            doc: result.ops[0]
                         });
                     });
                 } else {
                     res.render('check-in', {
-                        title: 'Check-in',
-                        id: id
+                        title: `${id} Check-in`,
+                        id: id,
+                        doc: result
                     });
                 }
             });
     } else {
-        res.render('admin', {
-            title: 'Admin'
-        })
+        common.renderAdmin(res);
     }
 });
 

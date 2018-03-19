@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var connection = require('../data/mongo_connection');
+var connection = require('../modules/mongo_connection');
 
 router.get('/student-check-in', (req, res) => {
     res.render('student-check-in', {

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var mongoConnection = require('../data/mongo_connection');
+var mongoConnection = require('../modules/mongo_connection');
 
 router.post('/history', (req, res) => {
     let id = req.body.id;

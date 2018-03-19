@@ -3,5 +3,23 @@ extends layout
 block content
   .jumbotron
     h1= title
-    form(action="/stop-check-in/" + id, method="post")
-        button.btn.btn-primary(type="submit") Stop #{id} check-in
+    if doc && doc.users.length
+      p Users checked-in:
+      table.check-in-table.margin-btm-md
+        tr 
+          th Name
+          th Id
+        each user in doc.users
+          tr
+            td= user.name
+            td= user.userId
+    else
+      p.margin-btm-lg No users checked-in so far
+
+    button.btn.btn-primary.margin-btm-sm(type="button", onclick="location.reload()")
+          span.glyphicon.glyphicon-refresh 
+          | &nbsp;Refresh
+    form.margin-btm-sm(action="/admin", method="post")
+        button.btn.btn-success(type="submit") Back to admin section
+    form.margin-btm-sm(action="/stop-check-in/" + id, method="post")
+        button.btn.btn-danger(type="submit") Stop #{id} check-in

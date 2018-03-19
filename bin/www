@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var db = require('../data/mongo_connection');
+var db = require('../modules/mongo_connection');
 var http = require('http');
 let server, port;
 

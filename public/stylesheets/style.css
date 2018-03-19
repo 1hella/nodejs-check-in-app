@@ -16,7 +16,7 @@ a {
   color: inherit;
 }
 
-.margin-bottom {
+h1 {
   margin-bottom: 45px;
 }
 
@@ -32,4 +32,37 @@ table, td, th {
 table th, table td {
   padding: 10px;
   font-size: 1.1em;
+}
+
+.delete.btn-danger {
+  font-size: 0.9em;
+}
+
+#ongoing {
+  margin: auto;
+  margin-bottom: 60px;
+}
+
+.jumbotron h1 {
+  font-size: 3.9em;
+}
+
+.margin-btm-sm {
+  margin-bottom: 10px;
+}
+
+.margin-btm-md {
+  margin-bottom: 30px !important;
+}
+
+.margin-btm-lg {
+  margin-bottom: 60px !important;
+}
+
+.check-in-table {
+  margin: auto;
+}
+
+.strong {
+  font-weight: bold !important;
 }
