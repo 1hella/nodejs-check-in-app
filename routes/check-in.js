@@ -5,41 +5,43 @@ var connection = require('../data/mongo_connection');
 router.post('/check-in', (req, res) => {
     var db = connection.db();
     let id = req.body.id;
+    
     if (id) {
         id = id.toUpperCase();
-        db.collection('currentCheckIns', (err, collection) => {
-            collection.update({
-                    id: id
-                }, {
-                    id: id,
-                    date: new Date()
-                }, {
-                    upsert: true
-                },
-                err => {
-                    if (err) {
-                        console.log(err);
-                    }
+        db.collection('checkIns').findOne({
+                id: id,
+                isActive: true
+            },
+            (err, result) => {
+                if (err) {
+                    console.log(err);
+                }
 
+                if (!result) {
+                    db.collection('checkIns').insertOne({
+                        id: id,
+                        isActive: true,
+                        date: new Date(),
+                        users: []
+                    }, err => {
+                        res.render('check-in', {
+                            title: 'Check-in',
+                            id: id,
+                            error: err
+                        });
+                    });
+                } else {
                     res.render('check-in', {
                         title: 'Check-in',
-                        id: id,
-                        error: err
+                        id: id
                     });
-                });
-        });
+                }
+            });
     } else {
         res.render('admin', {
             title: 'Admin'
         })
     }
-});
-
-router.post('/stop-check-in/:id', (req, res) => {
-    let id = req.params.id;
-    res.render('history', {
-        title: id + ' Check-in list'
-    });
 });
 
 module.exports = router;
