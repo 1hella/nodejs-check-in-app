@@ -5,7 +5,6 @@ const ADMIN_USERNAME = 'admin';
 const ADMIN_PASSWORD = '1234';
 
 router.post('/', (req, res) => {
-  console.log(req.body);
   let username = req.body.username;
   let password = req.body.password;
   if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {

@@ -1,7 +1,7 @@
 $(() => {
     $('#check-in-form').on('submit', e => {
         e.preventDefault();
-        
+
         $('#error').addClass('hidden');
 
         let checkIn = $('#check-in-form').serialize();
