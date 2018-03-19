@@ -34,8 +34,8 @@ table th, table td {
   font-size: 1.1em;
 }
 
-.delete.btn-danger {
-  font-size: 0.9em;
+.btn-sm {
+  font-size: 0.9em !important;
 }
 
 #ongoing {

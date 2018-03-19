@@ -9,12 +9,16 @@ block content
           tr
             th Check-in id
             th Date started
+            th View check-in
             th Stop check-in
           each doc in docs
             tr
               td= doc.id
               td= doc.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
-              td: form(action=`/stop-check-in/${doc.id}`, method="post"): button.btn.btn-danger.delete(type="submit") Stop
+              td: form(action=`/check-in`, method="post") 
+                input.hidden(type="text", name="id", value= doc.id)
+                button.btn.btn-primary.btn-sm(type="submit") view
+              td: form(action=`/stop-check-in/${doc.id}`, method="post"): button.btn.btn-danger.btn-sm(type="submit") Stop
 
     h2 Create new check-in
     form(action="/check-in", method="post")
