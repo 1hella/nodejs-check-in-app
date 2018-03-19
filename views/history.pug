@@ -2,6 +2,26 @@ extends layout
 
 block content
   .jumbotron
-    h1= title
+    h1.margin-bottom.underline= title
+    each doc in docs
+      div.text-left
+        h2= doc.id
+        h4= doc.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
+        if doc.users.length
+          h5 Users:
+          table(border="2")
+            tr 
+              th Name
+              th Id
+            each user in doc.users
+              tr
+                td= user.name
+                td= user.userId
+        else
+          p no users checked in
+      br
+    else
+      p no previous check-ins
+
     form(action="/admin", method="post")
         button.btn.btn-primary(type="submit") Back to admin section

@@ -17,9 +17,13 @@ router.post('/stop-check-in/:id', (req, res) => {
     }, {
         new: true
     }, (err, result) => {
+        let docs = [];
+        if (result.value) {
+            docs = [result.value];
+        }
         res.render('history', {
             title: id + ' Check-in list',
-            doc: result.value
+            docs: docs
         });
     });
 });
