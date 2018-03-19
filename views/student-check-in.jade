@@ -1,0 +1,24 @@
+extends layout
+
+block scripts
+    script(src="/javascripts/student-check-in.js")
+
+block content
+  .jumbotron
+    h1= title
+    form#check-in-form
+      .lead
+        .form-group.text-left
+          label.control-label(for="id") Check-in string:
+          input#id.form-control(type="text", name="id", required="")
+        .form-group.text-left
+          label.control-label(for="name") Name:
+          input#name.form-control(type="text", name="name", required="")
+        .form-group.text-left
+          label.control-label(for="user-id") User id:
+          input#student-id.form-control(type="text", name="student-id", required="")
+        
+        #error.alert.alert-danger.hidden
+            p(style="font-size: initial")= error
+      
+      button.btn.btn-lg.btn-success(type="submit") Check-in

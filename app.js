@@ -11,6 +11,8 @@ var login = require('./routes/login');
 var checkIn = require('./routes/check-in');
 var history = require('./routes/history');
 var admin = require('./routes/admin');
+var studentCheckIn = require('./routes/student-check-in');
+var success = require('./routes/success');
 
 var app = express();
 
@@ -26,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index, login, checkIn, history, admin);
+app.use('/', index, login, checkIn, history, admin, studentCheckIn, success);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -45,6 +47,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 module.exports = app;

@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.text-white {
+  color: white;
+}
+
+.btn > a:hover {
+  text-decoration: none;
+  color: inherit;
+}

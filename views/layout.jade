@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title= title
+    title #{title} | Stephen's check-in app
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel="stylesheet", href="/stylesheets/jumbotron-narrow.css")
 
@@ -20,6 +20,6 @@ html
         nav
           ul.nav.nav-pills.pull-right
             li.active(role="presentation"): a(href="/") Home
-        h3.text-muted: a(href="/") Check in
+        h3.text-muted: a(href="/") Stephen's check-in
     
       block content
