@@ -13,9 +13,7 @@ router.post('/history', (req, res) => {
     if (id) {
         options.id = id;
         title += ` for ${id}`;
-        console.log(options);
     }
-
 
     db.collection('checkIns').find(options).toArray((err, result) => {
         res.render('history', {

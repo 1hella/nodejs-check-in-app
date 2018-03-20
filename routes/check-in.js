@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var connection = require('../modules/mongo_connection');
+var mongoConnection = require('../modules/mongo_connection');
 const common = require('../modules/common');
+var ObjectId = require('mongodb').ObjectID;
 
 router.post('/check-in', (req, res) => {
-    var db = connection.db();
+    var db = mongoConnection.db();
     let id = req.body.id;
     
     if (id) {
@@ -43,6 +44,21 @@ router.post('/check-in', (req, res) => {
     } else {
         common.renderAdmin(res);
     }
+});
+
+router.delete('/check-in/:id', (req, res) => {
+    let _id = req.params.id;
+    let db = mongoConnection.db();
+
+    db.collection('checkIns').deleteOne({
+        _id: new ObjectId(_id)
+    }, err => {
+        if (err) {
+            res.write(500, err);            
+        }
+        
+        res.end();
+    })
 });
 
 module.exports = router;

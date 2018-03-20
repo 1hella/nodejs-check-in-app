@@ -1,6 +1,8 @@
 $(() => {
-  $('#history-button').on('click', e => {
-      $('#check-in-form').attr('action', 'history');
-      $('#check-in-form').submit();
-  });
+    $('#history-button').on('click', e => {
+        $('#check-in-form').attr('action', 'history');
+        if ($('#id').val() !== '') {
+            $('#check-in-form').submit();
+        }
+    });
 });

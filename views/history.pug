@@ -1,4 +1,6 @@
 extends layout
+block scripts
+  script(src="/javascripts/history.js")
 
 block content
   .jumbotron
@@ -9,7 +11,7 @@ block content
         h4= doc.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
         if doc.users.length
           p.strong Users checked-in:
-          table.check-in-table
+          table.margin-btm-md.check-in-table
             tr 
               th Name
               th Id
@@ -19,6 +21,7 @@ block content
                 td= user.userId
         else
           p no users checked in
+        button.btn.btn-danger(onclick= "deleteCheckIn('" + doc._id.toString() + "')") Delete
       hr
       br
     else
