@@ -3,14 +3,23 @@ var router = express.Router();
 var mongoConnection = require('../modules/mongo_connection');
 
 router.post('/history', (req, res) => {
-    let id = req.body.id;
+    let id = req.body.id.toUpperCase();
     let db = mongoConnection.db();
-
-    db.collection('checkIns').find({
+    
+    let options = {
         isActive: false
-    }).toArray((err, result) => {
+    };
+    let title = 'Check-in history';
+    if (id) {
+        options.id = id;
+        title += ` for ${id}`;
+        console.log(options);
+    }
+
+
+    db.collection('checkIns').find(options).toArray((err, result) => {
         res.render('history', {
-            title: 'Check-in history',
+            title: title,
             docs: result
         });
     })

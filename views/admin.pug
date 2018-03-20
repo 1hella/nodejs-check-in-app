@@ -1,5 +1,8 @@
 extends layout
 
+block scripts
+  script(src="/javascripts/admin.js")
+
 block content
   .jumbotron
     h1= title
@@ -21,7 +24,7 @@ block content
               td: form(action=`/stop-check-in/${doc.id}`, method="post"): button.btn.btn-danger.btn-sm(type="submit") Stop
 
     h2 Create new check-in
-    form(action="/check-in", method="post")
+    form#check-in-form(action="/check-in", method="post")
       .lead
         .form-group.text-left
           label.control-label(for="check-in") Check-in id:
@@ -29,9 +32,12 @@ block content
         
         .text-left
             button.btn.btn-primary(type="submit") Create
+        
+        .text-left
+            button#history-button.btn.btn-info View check-in history
 
     form(action="/history", method="post")
         .text-left
-            button.btn.btn-default View past check-ins
+            button.btn.btn-default View check-in history for all id's
   
 
