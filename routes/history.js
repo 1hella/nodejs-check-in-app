@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoConnection = require('../modules/mongo_connection');
 
 router.post('/history', (req, res) => {
-    let id = req.body.id.toUpperCase();
+    let id = req.body.id;
     let db = mongoConnection.db();
     
     let options = {
@@ -11,6 +11,7 @@ router.post('/history', (req, res) => {
     };
     let title = 'Check-in history';
     if (id) {
+        id = id.toUpperCase();
         options.id = id;
         title += ` for ${id}`;
     }
