@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoConnection = require('./mongo_connection');
 const CHECK_IN_COLLECTION = 'checkIns';
 

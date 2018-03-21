@@ -1,3 +1,5 @@
+'use strict';
+
 const MongoClient = require('mongodb').MongoClient;
 let state = {
     db: null
