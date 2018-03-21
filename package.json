@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node-dev ./bin/www"
+    "start": "node-dev ./bin/www",
+    "production": "pm2 start ./bin/www"
   },
   "dependencies": {
     "express": "^4.16.2",
