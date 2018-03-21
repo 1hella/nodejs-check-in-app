@@ -25,7 +25,8 @@ router.post('/stop-check-in/:id', (req, res) => {
         }
         res.render('history', {
             title: 'Check-in history',
-            docs: docs
+            docs: docs,
+            base_dir: '..'
         });
     });
 });

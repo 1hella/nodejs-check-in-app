@@ -3,7 +3,7 @@ extends layout
 block content
   .jumbotron
     h1= title
-    form#login-form(action="/", method="post")
+    form#login-form(action=base + "/", method="post")
       .lead
         .form-group.text-left
           label.control-label(for="username") Username:
@@ -20,4 +20,4 @@ block content
 
   .row.marketing
     .col-lg-6
-      a.btn.btn-lg.btn-primary.text-center(href="/student-check-in") Student check-in
+      a.btn.btn-lg.btn-primary.text-center(href=base + "/student-check-in") Student check-in

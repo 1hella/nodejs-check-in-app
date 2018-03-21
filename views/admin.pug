@@ -1,7 +1,7 @@
 extends layout
 
 block scripts
-  script(src="/javascripts/admin.js")
+  script(src=base + "/javascripts/admin.js")
 
 block content
   .jumbotron
@@ -18,13 +18,13 @@ block content
             tr
               td= doc.id
               td= doc.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
-              td: form(action=`/check-in`, method="post") 
+              td: form(action=base + '/check-in', method="post") 
                 input.hidden(type="text", name="id", value= doc.id)
                 button.btn.btn-primary.btn-sm(type="submit") view
-              td: form(action=`/stop-check-in/${doc.id}`, method="post"): button.btn.btn-danger.btn-sm(type="submit") Stop
+              td: form(action=base + `/stop-check-in/${doc.id}`, method="post"): button.btn.btn-danger.btn-sm(type="submit") Stop
 
     h2 Create new check-in
-    form#check-in-form(action="/check-in", method="post")
+    form#check-in-form(action=base + "/check-in", method="post")
       .lead
         .form-group.text-left
           label.control-label(for="check-in") Check-in id:
@@ -36,7 +36,7 @@ block content
         .text-left
             button#history-button.btn.btn-info View check-in history
 
-    form(action="/history", method="post")
+    form(action=base + "/history", method="post")
         .text-left
             button.btn.btn-default View check-in history for all id's
   

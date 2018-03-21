@@ -7,7 +7,7 @@ $(() => {
         let checkIn = $('#check-in-form').serialize();
 
         $.ajax({
-            url: '/student-check-in',
+            url: base + '/student-check-in',
             data: checkIn,
             method: 'POST',
             error: err => {
@@ -15,7 +15,7 @@ $(() => {
                 $('#error > p')[0].innerText = err.statusText;
             },
             success: () => {
-                window.location = '/success'
+                window.location = base + '/success'
             }
         });
     });

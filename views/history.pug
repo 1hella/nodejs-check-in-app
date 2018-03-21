@@ -1,6 +1,10 @@
 extends layout
+
+block basetag
+  -var base= base_dir || '.';
+
 block scripts
-  script(src="/javascripts/history.js")
+  script(src=base + "/javascripts/history.js")
 
 block content
   .jumbotron
@@ -27,5 +31,5 @@ block content
     else
       p no previous check-ins
 
-    form(action="/admin", method="post")
+    form(action=base + "/admin", method="post")
         button.btn.btn-primary(type="submit") Back to admin section
