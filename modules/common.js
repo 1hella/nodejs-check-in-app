@@ -8,6 +8,28 @@ module.exports.renderAdmin = res => {
     db.collection('checkIns').find({
         isActive: true
     }).toArray((err, result) => {
-        res.render('admin', { title: 'Admin panel', docs: result});
+        res.render('admin', {
+            title: 'Admin panel',
+            docs: result
+        });
     });
+}
+
+module.exports.renderLoginError = res => {
+    module.exports.renderLogin(res, {
+        error: 'Please login to view this page'
+    });
+}
+
+module.exports.renderLogin = (res, options) => {
+    const TITLE = 'Login';
+    if (!options) {
+        options = {
+            title: TITLE
+        };
+    } else if (!options.title) {
+        options.title = TITLE;
+    }
+
+    res.render('login', options);
 }

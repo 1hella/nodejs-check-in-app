@@ -9,18 +9,19 @@ const ADMIN_USERNAME = 'admin';
 const ADMIN_PASSWORD = '1234';
 
 router.get('/login', (req, res) => {
-    res.render('login', { title: 'Login' });
+    common.renderLogin(res);
 });
 
 router.post('/login', (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
-    if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+    if (username.trim().toUpperCase() === ADMIN_USERNAME.trim().toUpperCase() && password === ADMIN_PASSWORD) {
         common.renderAdmin(res);
     } else {
         res.render('login', {
             title: 'Login',
-            error: 'Incorrect username or password'
+            error: 'Incorrect username or password',
+            incorrectPassword: true
         });
     }
 });

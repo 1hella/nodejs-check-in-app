@@ -6,4 +6,8 @@ router.post('/admin', (req, res) => {
     common.renderAdmin(res);
 });
 
+router.get('/admin', (req, res) => {
+    common.renderLoginError(res);
+})
+
 module.exports = router;

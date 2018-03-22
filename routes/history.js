@@ -3,6 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoConnection = require('../modules/mongo_connection');
+var common = require('../modules/common');
 
 router.post('/history', (req, res) => {
     let id = req.body.id;
@@ -25,5 +26,9 @@ router.post('/history', (req, res) => {
         });
     })
 });
+
+router.get('/history', (req, res) => {
+    common.renderLoginError(res);
+})
 
 module.exports = router;

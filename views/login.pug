@@ -8,7 +8,7 @@ block content
         .form-group.text-left
           label.control-label(for="username") Username:
           input#username.form-control(type="text", name="username")
-        .form-group.text-left(class=typeof error === "undefined" ? undefined : "has-error")
+        .form-group.text-left(class=incorrectPassword ? "has-error" : undefined)
           label.control-label(for="password") Password:
           input#password.form-control(type="password", name="password")
         

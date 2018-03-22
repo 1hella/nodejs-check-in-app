@@ -63,4 +63,8 @@ router.delete('/check-in/:id', (req, res) => {
     })
 });
 
+router.get('/check-in', (req, res) => {
+    common.renderLoginError(res);
+})
+
 module.exports = router;
