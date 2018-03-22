@@ -3,6 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoConnection = require('../modules/mongo_connection');
+var common = require('../modules/common');
 
 router.post('/stop-check-in/:id', (req, res) => {
     let db = mongoConnection.db();
@@ -29,6 +30,10 @@ router.post('/stop-check-in/:id', (req, res) => {
             base_dir: '..'
         });
     });
+});
+
+router.get('/stop-check-in/', (req, res) => {
+    common.renderLoginError(res);
 });
 
 module.exports = router;

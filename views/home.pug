@@ -3,7 +3,7 @@ extends layout
 block content
   .jumbotron
     h1= title
-    p.lead.text-left This is a cool check-in app that allows an admin to set up a check-in for an event. Attendees can check-in to an event using a check-in ID.
+    p.lead.text-left This is a cool check-in app that allows an admin to set up a live check-in for an event. Attendees can check-in to an event using a check-in ID.
     a.btn.btn-lg.btn-success.margin-right-sm(href=base + '/login') Admin Login
     a.btn.btn-lg.btn-success(href=base + '/student-check-in') Student check-in
   .jumbotron
@@ -14,3 +14,5 @@ block content
       li View checked-in attendees from check-in page
       li View history for all check-in IDs
       li Delete check-ins from the history page
+    
+    h3.text-left Default login is admin:1234
