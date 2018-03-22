@@ -70,3 +70,10 @@ table th, table td {
 .margin-right-sm {
   margin-right: 10px;
 }
+
+@media screen and (max-width: 448px) {
+  body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
