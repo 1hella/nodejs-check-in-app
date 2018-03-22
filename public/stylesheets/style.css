@@ -11,7 +11,7 @@ a {
   color: white;
 }
 
-.btn > a:hover {
+.btn>a:hover {
   text-decoration: none;
   color: inherit;
 }
@@ -24,14 +24,29 @@ h1 {
   text-decoration: underline
 }
 
-table, td, th {
+td, th {
   border: 1px solid black;
   border-collapse: collapse
 }
 
-table th, table td {
+table th,
+table td {
   padding: 10px;
   font-size: 1.1em;
+}
+
+table {
+  overflow-x: scroll;
+  display: block;
+}
+
+.check-in-table {
+  display: table;
+}
+
+th,
+td {
+  word-wrap: break-word;
 }
 
 .btn-sm {
@@ -71,9 +86,30 @@ table th, table td {
   margin-right: 10px;
 }
 
+button {
+  white-space: normal !important;
+}
+
+@media screen and (max-width: 574px) {
+  .jumbotron a.btn {
+    margin-top: 5px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .jumbotron table .btn {
+    padding: 14px;
+  }
+}
+
 @media screen and (max-width: 448px) {
   body {
-    padding-left: 0;
+    padding-left: 0px;
     padding-right: 0;
+  }
+  table th,
+  table td {
+    padding-right: 5px;
+    padding-left: 5px;
   }
 }
