@@ -66,3 +66,7 @@ table th, table td {
 .strong {
   font-weight: bold !important;
 }
+
+.margin-right-sm {
+  margin-right: 10px;
+}

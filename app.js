@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var fs = require('fs');
 
-var index = require('./routes/index');
+var home = require('./routes/home');
 var login = require('./routes/login');
 var checkIn = require('./routes/check-in');
 var history = require('./routes/history');
@@ -23,7 +23,7 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-app.use('/', index, login, checkIn, history, admin, studentCheckIn, stopCheckIn, success);
+app.use('/', home, login, checkIn, history, admin, studentCheckIn, stopCheckIn, success);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

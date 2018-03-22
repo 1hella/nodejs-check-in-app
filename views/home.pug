@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .jumbotron
+    h1= title
+    p.lead.text-left This is a cool check-in app that allows an admin to set up a check-in for an event. Attendees can check-in to an event using a check-in ID.
+    a.btn.btn-lg.btn-success.margin-right-sm(href=base + '/login') Admin Login
+    a.btn.btn-lg.btn-success(href=base + '/student-check-in') Student check-in
+  .jumbotron
+    h2.text-left Extra Features:
+    ul.text-left
+      li Multiple check-ins at once
+      li View and manage ongoing check-ins from admin panel
+      li View checked-in attendees from check-in page
+      li View history for all check-in IDs
+      li Delete check-ins from the history page

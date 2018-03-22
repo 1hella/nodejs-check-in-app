@@ -3,7 +3,7 @@ extends layout
 block content
   .jumbotron
     h1= title
-    form#login-form(action=base + "/", method="post")
+    form#login-form(action=base + "/login", method="post")
       .lead
         .form-group.text-left
           label.control-label(for="username") Username:

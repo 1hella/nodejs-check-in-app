@@ -1,0 +1,10 @@
+'use strict';
+
+const express = require('express');
+const router = express.Router();
+
+router.get('/', (req, res) => {
+    res.render('home', { title: "Stephen's check-in app" });
+});
+
+module.exports = router;
