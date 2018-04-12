@@ -10,19 +10,8 @@ var db = require('../modules/mongo_connection');
 var http = require('http');
 let server, port;
 
-let mongoURL = "mongodb://localhost:27017";
-let mongoUsername = process.env.MONGO_USER;
-let mongoPassword = process.env.MONGO_PASS;
-let dbName = process.env.MONGO_DB || 'CMPT218-ASS3';
-
-if (mongoUsername && mongoPassword) {
-  mongoURL = `mongodb://${mongoUsername}:${mongoPassword}@localhost:27017`;
-}
-
-console.log('dbName', dbName);
-console.log('mongoUsername', mongoUsername);
-console.log('mongoPassword', mongoPassword);
-console.log('mongoUrl', mongoURL);
+var mongoURL = process.env.MONGODB_URI || "mongodb://localhost:27017/CMPT218-ASS4";
+var dbName = mongoURL.substr(mongoURL.lastIndexOf('/') + 1, mongoURL.length);
 
 /**
  * Initialize MongoDB connection
