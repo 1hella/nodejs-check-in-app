@@ -5,4 +5,4 @@ This is a Node application made for a university class, which was posted with pe
 
 Users can log in and create a check-in event where students attending a class, or attendees at an event can check-in.
 
-Uses MongoDB and Pug.
+The app uses MongoDB and Pug.
