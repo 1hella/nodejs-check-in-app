@@ -7,12 +7,12 @@ block content
   .jumbotron
     h1= title
     if docs && docs.length
-        h2 Ongoing check-ins
+        h2 Ongoing Check-ins
         table#ongoing
           tr
-            th Check-in id
+            th Event id
             th Date started
-            th View check-in
+            th View event
             th Stop check-in
           each doc in docs
             tr
@@ -20,24 +20,20 @@ block content
               td= doc.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
               td: form(action=base + '/check-in', method="post") 
                 input.hidden(type="text", name="id", value= doc.id)
-                button.btn.btn-primary.btn-sm(type="submit") view
-              td: form(action=base + `/stop-check-in/${doc.id}`, method="post"): button.btn.btn-danger.btn-sm(type="submit") Stop
+                button.btn.btn-warning.btn-sm(type="submit") View Event Check-ins
+              td: form(action=base + `/stop-check-in/${doc.id}`, method="post"): button.btn.btn-success.btn-sm(type="submit") Stop Event Check-ins
 
-    h2 Create new check-in
+    h2 Create a new event
     form#check-in-form(action=base + "/check-in", method="post")
       .lead
         .form-group.text-left
-          label.control-label(for="check-in") Check-in id:
-          input#id.form-control(type="text", name="id", required)
-        
-        .text-left
-            button.btn.btn-primary(type="submit") Create
-        
-        .text-left
-            button#history-button.btn.btn-info View check-in history
+          label.control-label(for="check-in") Event id:
+          input#id.form-control(type="text", name="id", required) 
+        .form-group
+          button.btn.btn-primary(type="submit") Create
+          button#history-button.btn.btn-warning View event check-ins
 
     form(action=base + "/history", method="post")
-        .text-left
-            button.btn.btn-default View check-in history for all id's
+        button.btn.btn-success View all past events
   
 

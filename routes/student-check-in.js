@@ -6,7 +6,7 @@ var connection = require('../modules/mongo_connection');
 
 router.get('/student-check-in', (req, res) => {
     res.render('student-check-in', {
-        title: 'Student check-in'
+        title: 'Attendee Check-in'
     });
 });
 

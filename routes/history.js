@@ -12,7 +12,7 @@ router.post('/history', (req, res) => {
     let options = {
         isActive: false
     };
-    let title = 'Check-in history';
+    let title = 'Event Check-in History';
     if (id) {
         id = id.toUpperCase();
         options.id = id;

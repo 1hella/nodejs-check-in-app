@@ -11,8 +11,10 @@ block content
     h1.margin-bottom= title
     each doc in docs
       div
-        h2= doc.id
-        h4= doc.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
+        h2 Event name: 
+          span= doc.id
+        h4 Date: 
+          span= doc.date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
         if doc.users.length
           p.strong Users checked-in:
           table.margin-btm-md.check-in-table
@@ -32,4 +34,4 @@ block content
       p no previous check-ins
 
     form(action=base + "/admin", method="post")
-        button.btn.btn-primary(type="submit") Back to admin section
+        button.btn.btn-info(type="submit") Back to admin section

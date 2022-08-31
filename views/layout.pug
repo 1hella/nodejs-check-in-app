@@ -8,7 +8,7 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     
-    title #{title} | Stephen's check-in app
+    title #{title} | Event Check In
 
     //- jquery
     script(src="https://code.jquery.com/jquery-3.3.1.min.js")
@@ -30,9 +30,9 @@ html
       .header.clearfix
         nav
           ul.nav.nav-pills.pull-right
-            li(role="presentation", class= title === 'Stephen\'s check-in app' ? 'active' : undefined): a(href=base + "/") Home
-            li(role="presentation", class= title === 'Student check-in' || title === 'Check-in complete' || title === 'Stephen\'s check-in app' ? undefined : 'active'): a(href=base + "/login") Login
-            li(role="presentation", class= title === 'Student check-in' || title === 'Check-in complete' ? 'active' : undefined): a(href=base + "/student-check-in") Student check-in
-        h3.text-muted: a(href=base + "/") Stephen's check-in
+            li(role="presentation", class= title === 'Event Check In' ? 'active' : undefined): a(href=base + "/") Home
+            li(role="presentation", class= title === 'Student check-in' || title === 'Check-in complete' || title === 'Event Check In' ? undefined : 'active'): a(href=base + "/login") Login
+            li(role="presentation", class= title === 'Student check-in' || title === 'Check-in complete' ? 'active' : undefined): a(href=base + "/student-check-in") Attendee check-in
+        h3.text-muted: a(href=base + "/") Event Check In
     
       block content

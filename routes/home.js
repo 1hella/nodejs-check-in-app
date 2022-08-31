@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('home', { title: "Stephen's check-in app" });
+    res.render('home', { title: "Event Check In" });
 });
 
 module.exports = router;

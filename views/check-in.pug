@@ -16,10 +16,10 @@ block content
     else
       p.margin-btm-lg No users checked-in so far
 
-    button.btn.btn-primary.margin-btm-sm(type="button", onclick="location.reload()")
+    button.btn.btn-warning.margin-btm-sm(type="button", onclick="location.reload()")
           span.glyphicon.glyphicon-refresh 
           | &nbsp;Refresh
-    form.margin-btm-sm(action=base + "/admin", method="post")
-        button.btn.btn-success(type="submit") Back to admin section
     form.margin-btm-sm(action=base + "/stop-check-in/" + id, method="post")
-        button.btn.btn-danger(type="submit") Stop #{id} check-in
+        button.btn.btn-success(type="submit") Stop #{id} check-in
+    form.margin-btm-sm(action=base + "/admin", method="post")
+        button.btn.btn-info(type="submit") Back to admin section

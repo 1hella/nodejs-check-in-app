@@ -25,7 +25,7 @@ router.post('/stop-check-in/:id', (req, res) => {
             docs = [result.value];
         }
         res.render('history', {
-            title: 'Check-in history',
+            title: 'Event Check-in History',
             docs: docs,
             base_dir: '..'
         });
