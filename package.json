@@ -7,7 +7,7 @@
     "dev": "node-dev ./bin/www"
   },
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "mongodb": "^3.0.4",
     "pug": "^2.0.1"
   }
